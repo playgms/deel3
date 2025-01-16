@@ -31,7 +31,7 @@ model.compile(optimizer='rmsprop',loss='categorical_crossentropy',metrics=['accu
 x_val=x_train[:1000]
 partial_x_train=x_train[1000:]
 y_val=onehot_train_labels[:1000]
-partial_y_val=onehot_train
+partial_y_val=onehot_train_labels[1000:]
 history=model.fit(partial_x_train,partial_y_val,epochs=10,batch_size=10,validation_data=(x_val,y_val))
 result=model.evaluate(x_test,onehot_test_labels)
 print('accuracy=',result[1])
